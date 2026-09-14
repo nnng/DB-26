@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD" id="0">
+    <mxGraphModel dx="3445" dy="2300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="100" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Airport&lt;/font&gt;&lt;br&gt;airport_id: INT [PK]&lt;br&gt;airport_name: VARCHAR(150)&lt;br&gt;country: VARCHAR(100)&lt;br&gt;state: VARCHAR(100)&lt;br&gt;city: VARCHAR(100)&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="960" y="363" as="geometry" />
+        </mxCell>
+        <mxCell id="101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Airline&lt;/font&gt;&lt;br&gt;airline_id: INT [PK]&lt;br&gt;airline_code: VARCHAR(10) [UQ]&lt;br&gt;name: VARCHAR(150)&lt;br&gt;country: VARCHAR(100)&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="960" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="102" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Flight&lt;/font&gt;&lt;br&gt;flight_id: INT [PK]&lt;br&gt;airline_id: INT [FK]&lt;br&gt;departure_airport_id: INT [FK]&lt;br&gt;arrival_airport_id: INT [FK]&lt;br&gt;departure_gate: VARCHAR(20)&lt;br&gt;arrival_gate: VARCHAR(20)&lt;br&gt;scheduled_departure_time: TIMESTAMP&lt;br&gt;scheduled_arrival_time: TIMESTAMP&lt;br&gt;actual_departure_time: TIMESTAMP&lt;br&gt;actual_arrival_time: TIMESTAMP&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="197" width="240" x="480" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="103" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Passenger&lt;/font&gt;&lt;br&gt;passenger_id: INT [PK]&lt;br&gt;first_name: VARCHAR(100)&lt;br&gt;last_name: VARCHAR(100)&lt;br&gt;gender: VARCHAR(20)&lt;br&gt;date_of_birth: DATE&lt;br&gt;citizenship_country: VARCHAR(100)&lt;br&gt;residence_country: VARCHAR(100)&lt;br&gt;passport_number: VARCHAR(30) [UQ]&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="1280" y="-37" as="geometry" />
+        </mxCell>
+        <mxCell id="104" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Booking&lt;/font&gt;&lt;br&gt;booking_id: INT [PK]&lt;br&gt;flight_id: INT [FK]&lt;br&gt;passenger_id: INT [FK]&lt;br&gt;status: VARCHAR(30)&lt;br&gt;booking_platform: VARCHAR(100)&lt;br&gt;ticket_price: DECIMAL(10,2)&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="320" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="105" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;BookingChange&lt;/font&gt;&lt;br&gt;booking_change_id: INT [PK]&lt;br&gt;booking_id: INT [FK]&lt;br&gt;changed_at: TIMESTAMP&lt;br&gt;changed_data: TEXT" vertex="1">
+          <mxGeometry height="157" width="240" x="-170" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="106" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;BoardingPass&lt;/font&gt;&lt;br&gt;boarding_pass_id: INT [PK]&lt;br&gt;booking_id: INT [FK, UQ]&lt;br&gt;seat: VARCHAR(10)&lt;br&gt;boarding_time: TIMESTAMP&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="80" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="107" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Baggage&lt;/font&gt;&lt;br&gt;baggage_id: INT [PK]&lt;br&gt;booking_id: INT [FK]&lt;br&gt;weight_kg: DECIMAL(5,2)&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="560" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="108" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;BaggageCheck&lt;/font&gt;&lt;br&gt;baggage_check_id: INT [PK]&lt;br&gt;baggage_id: INT [FK]&lt;br&gt;booking_id: INT [FK]&lt;br&gt;passenger_id: INT [FK]&lt;br&gt;check_result: VARCHAR(100)&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="1280" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="109" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#334155;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;SecurityCheck&lt;/font&gt;&lt;br&gt;security_check_id: INT [PK]&lt;br&gt;passenger_id: INT [FK]&lt;br&gt;check_result: VARCHAR(100)&lt;br&gt;created_at: TIMESTAMP&lt;br&gt;updated_at: TIMESTAMP" vertex="1">
+          <mxGeometry height="157" width="240" x="1280" y="-350" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;" target="102" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Airline.airline_id [PK] = Flight.airline_id [FK]">
+          <mxGeometry relative="1" y="-18" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;exitX=0;exitY=0.35;exitDx=0;exitDy=0;entryX=1;entryY=0.62;entryDx=0;entryDy=0;" target="102" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Airport.airport_id [PK] = Flight.departure_airport_id [FK]">
+          <mxGeometry relative="1" x="0.2304" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="960" y="400.04" />
+              <mxPoint x="880" y="400.04" />
+              <mxPoint x="880" y="320.12" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;exitX=0;exitY=0.72;exitDx=0;exitDy=0;entryX=1;entryY=0.83;entryDx=0;entryDy=0;" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Airport.airport_id [PK] = Flight.arrival_airport_id [FK]">
+          <mxGeometry relative="1" x="-0.323" y="15" as="geometry">
+            <mxPoint x="15" y="15" as="offset" />
+            <Array as="points">
+              <mxPoint x="840" y="444.49" />
+              <mxPoint x="840" y="358.49" />
+              <mxPoint x="720" y="358.49" />
+            </Array>
+            <mxPoint x="960" y="444.53" as="sourcePoint" />
+            <mxPoint x="720" y="329.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="104" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Flight.flight_id [PK] = Booking.flight_id [FK]">
+          <mxGeometry relative="1" y="-18" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="104" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Passenger.passenger_id [PK] = Booking.passenger_id [FK]">
+          <mxGeometry relative="1" y="-18" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="105" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Booking.booking_id [PK] = BookingChange.booking_id [FK]">
+          <mxGeometry relative="1" y="-18" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="106" value="&lt;b&gt;1:1&lt;/b&gt;&lt;br&gt;Booking.booking_id [PK] = BoardingPass.booking_id [FK, UQ]">
+          <mxGeometry relative="1" y="-18" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="107" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Booking.booking_id [PK] = Baggage.booking_id [FK]">
+          <mxGeometry relative="1" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="108" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Baggage.baggage_id [PK] = BaggageCheck.baggage_id [FK]">
+          <mxGeometry relative="1" y="-18" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="108" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Passenger.passenger_id [PK] = BaggageCheck.passenger_id [FK]">
+          <mxGeometry relative="1" y="-18" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="560" />
+              <mxPoint x="1440" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="109" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Passenger.passenger_id [PK] = SecurityCheck.passenger_id [FK]">
+          <mxGeometry relative="1" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;fontSize=8;labelBackgroundColor=#ffffff;" target="108" value="&lt;b&gt;1:N&lt;/b&gt;&lt;br&gt;Booking.booking_id [PK] = BaggageCheck.booking_id [FK]">
+          <mxGeometry relative="1" y="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
